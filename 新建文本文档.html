@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body, html {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+    video {
+      max-width: 100%;
+    }
+    .question {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<video controls autoplay onended="showQuestion()">
+  <source src="video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<div class="question" id="question" style="display: none; margin-top: 20px;">
+  <p>问题：这是一个测试问题，回答正确跳转到A链接，回答错误跳转到B链接。</p>
+  <button onclick="checkAnswer(true)">选项1</button>
+  <button onclick="checkAnswer(false)">选项2</button>
+</div>
+
+<script>
+  var question = document.getElementById('question');
+
+  // 显示问题
+  function showQuestion() {
+    question.style.display = 'block';
+  }
+
+  // 检查答案并跳转
+  function checkAnswer(correct) {
+    if (correct) {
+      window.location = 'https://www.bilibili.com';
+    } else {
+      window.location = 'B-link.html';
+    }
+  }
+</script>
+
+</body>
+</html>
